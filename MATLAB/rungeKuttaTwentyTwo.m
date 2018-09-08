@@ -1,0 +1,16 @@
+f=@(x,y)x.^2./(1+y.^2)-2.*y;
+[x1,y1]=Runge_Kutta(f,2,3,1,10);
+[x2,y2]=Runge_Kutta(f,2,3,1,20);
+[x3,y3]=Runge_Kutta(f,2,3,1,40);
+%g=@(x,y)exp(-2.*x).*x.^2./(1+u.^2.*exp(-4.*x))
+g=@(x,y)exp(2*x).*(x.^2)./(1+y.^2);
+[x1,u1]=Runge_Kutta(g,2,3,exp(4),10);
+[x2,u2]=Runge_Kutta(g,2,3,exp(4),20);
+[x3,u3]=Runge_Kutta(g,2,3,exp(4),40);
+%y11=u1.*exp(-2.*x1);
+y11=(u1)./exp(2*(x1));
+y12=(u2)./exp(2*(x2));
+y13=(u3)./exp(2*(x3));
+A=[y1,y11]
+B=[y2,y12]
+C=[y3,y13]

@@ -1,0 +1,11 @@
+f=@(x,y)x*y.^2*(y+1)-3*y;
+[x1,y1]=Euler(f,0,1,1,10);
+[x2,y2]=Euler(f,0,1,1,20);
+[x3,y3]=Euler(f,0,1,1,40);
+g=@(x,y)x*(y+1).*exp(3*x).*y.^2;
+[x11,U11]=Euler(g,0,1,1,10);
+[x12,U12]=Euler(g,0,1,1,20);
+[x13,U13]=Euler(g,0,1,1,40);
+x4=linspace(0,1,11);
+x5=linspace(0,1,21);
+x6=linspace(0,1,41);
